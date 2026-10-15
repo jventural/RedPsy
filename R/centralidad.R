@@ -55,8 +55,9 @@ plot.rp_centralidad <- function(x, ...) {
   l <- rbind(data.frame(nodo = z$nodo, medida = "Influencia esperada", valor = z$ie),
              data.frame(nodo = z$nodo, medida = "Fuerza puente", valor = z$fp))
   l$nodo <- factor(l$nodo, levels = o)
+  l <- l[order(l$medida, l$nodo), ]                 # la linea une los nodos en orden
   ggplot2::ggplot(l, ggplot2::aes(valor, nodo, group = medida)) +
-    ggplot2::geom_path(colour = "#BB1715") + ggplot2::geom_point(colour = "#BB1715", size = 2.5) +
+    ggplot2::geom_path(colour = "#BB1715", ggplot2::aes(group = medida)) + ggplot2::geom_point(colour = "#BB1715", size = 2.5) +
     ggplot2::facet_wrap(~ medida) + ggplot2::labs(x = "z", y = NULL) +
     ggplot2::theme_minimal(base_size = 14) + ggplot2::theme(panel.grid.minor = ggplot2::element_blank())
 }

@@ -1,7 +1,7 @@
 Package: RedPsy
 Type: Package
 Title: Simple Psychological Network Analysis for Relational Studies
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: person("Jose", "Ventura-Leon", email = "jventuraleon@gmail.com",
     role = c("aut", "cre"), comment = c(ORCID = "0000-0003-2996-4244"))
 Description: A small set of functions, one per step of a psychological
@@ -19,6 +19,7 @@ Encoding: UTF-8
 Language: es
 Depends: R (>= 4.1.0)
 Imports:
+    LimpiaR,
     bootnet,
     ggplot2,
     mgm,
@@ -31,3 +32,4 @@ Suggests:
     NetworkComparisonTest
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
+Remotes: jventural/LimpiaR
